@@ -33,6 +33,21 @@ class EditIssue extends PureComponent {
         ) 
     }
 
+    renderBoardList() {
+        const boardList = this.props.boardList;
+        const issueBoard = this.props.issueBoard;
+
+        return (
+            <select neme="issueBoard" id="issueBoard" disabled>
+            {
+                boardList.map(board => (
+                    <option selected={board === issueBoard}>{board}</option>
+                ))
+            }
+        </select>
+        ) 
+    }
+
     render () {
         return ( 
             <div className="maincontaineredit">
@@ -66,6 +81,12 @@ class EditIssue extends PureComponent {
                         
                     </div>
 
+                     <div className="editgroup">
+                        <label> Выберите kanban доску: </label>
+                        {this.renderBoardList()}
+                        
+                    </div>
+
                     <div className="editgroup">
                         <label> Дайте оценку задаче: </label>
                         <input type="text" name="name" defaultValue={this.props.issueText} disabled/>
@@ -89,7 +110,9 @@ EditIssue.defaultProps = {
     issueAssignee: 'Group 4',
     assigneeList: ['Group 1', 'Group 2', 'Group 3', 'Group 4'],
     issuePriority: 'Normal',
-    priorityList: ['Lowest', 'Low', 'Normal', 'Medium', 'High', 'Highest', 'Blocker']
+    priorityList: ['Lowest', 'Low', 'Normal', 'Medium', 'High', 'Highest', 'Blocker'],
+    issueBoard: 'Board3',
+    boardList: ['Board1','Board2','Board3']
 }
 
 EditIssue.propTypes = {
@@ -98,6 +121,7 @@ EditIssue.propTypes = {
     issueText: propTypes.string,
     issueGroup: propTypes.array,
     issuPriority: propTypes.array,
+    issueBoard: propTypes.array,
 }
 
 export default EditIssue;

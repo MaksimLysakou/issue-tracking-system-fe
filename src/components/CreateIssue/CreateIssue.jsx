@@ -49,6 +49,16 @@ class CreateIssue extends PureComponent{
                     </div>
 
                     <div className="inputgroup">
+                        <label> Выберите kanban доску: </label>
+                        <select >
+                            <option value="Board1">Board1</option>
+                            <option value="Board2">Board2</option>
+                            <option value="Board3">Board3</option>
+
+                        </select>
+                    </div>
+
+                    <div className="inputgroup">
                         <label> Дайте оценку задаче: </label>
                         <input type="text" name="name" />
                     </div>  

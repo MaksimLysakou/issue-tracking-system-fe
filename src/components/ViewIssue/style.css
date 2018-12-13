@@ -1,0 +1,90 @@
+
+h1 {
+    font-size: 100%; 
+} 
+
+.maincontaineredit {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maincontaineredit  div {
+    padding: 10px;
+   
+   }
+
+.headedit {
+    background-color: #57d677 ;
+    border-top-left-radius:5px; 
+    border-top-right-radius:5x;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    border: 2px solid black;
+
+}
+
+.mainelementsedit {
+    background-color: #57d677 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 450px;
+    border: 2px solid black;
+
+}
+
+.createclosedelete {
+    text-align: center;
+    background-color: #57d677 ;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    border: 2px solid black;
+
+}
+
+body {
+    background-color: #4ebf6b; 
+} 
+
+.editgroup {
+    background-color: #57d677 ;
+    border: 2px solid #57d677;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+ 
+.editgroup *:last-child {
+
+    width: 200px;
+    margin-left: 20px;
+}
+
+input, select, textarea {
+    
+    border: 2px solid;
+    font-weight: 700;
+    color: black;
+    margin: 5px;
+    min-height: 30px;
+    transition: background-color 0.2s,
+}
+
+input:hover , select:hover , textarea:hover {
+    background-color: rgba(255,255,255,.2);;
+}
+input:active , select:active , textarea:active {
+    background-color: white;
+}
+input:disabled  , select:disabled , textarea:disabled {
+    background: #ccc;
+  }
+ 

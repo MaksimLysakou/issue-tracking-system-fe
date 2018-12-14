@@ -56,39 +56,39 @@ class EditIssue extends PureComponent {
                 </div>
                 <div className="mainelementsedit">
                     <div className="editgroup">
-                        <label> Название задачи: </label>
+                        <span> Название задачи: </span>
                         <input type="text" name="name" defaultValue={this.props.issueName} />
                     </div>
 
                     <div className="editgroup">                
-                        <label> Описание: </label>
+                        <span> Описание: </span>
                         <textarea type="text" name="message"defaultValue={this.props.issueMessage}/>
                     </div>
 
                     <div className="editgroup">
-                        <label> Создатель задачи: </label>
-                        <label> Admin </label>
+                        <span> Создатель задачи: </span>
+                        <span> Admin </span>
                     </div> 
 
                     <div className="editgroup"> 
-                        <label> Выберите исполнителя:</label>
+                        <span> Выберите исполнителя:</span>
                        {this.renderAssigneeList()}
                     </div>
 
                     <div className="editgroup">
-                        <label> Выберите приоритет: </label>
+                        <span> Выберите приоритет: </span>
                         {this.renderPriorityList()}
                         
                     </div>
 
                      <div className="editgroup">
-                        <label> Выберите kanban доску: </label>
+                        <span> Выберите kanban доску: </span>
                         {this.renderBoardList()}
                         
                     </div>
 
                     <div className="editgroup">
-                        <label> Дайте оценку задаче: </label>
+                        <span> Дайте оценку задаче: </span>
                         <input type="text" name="name" defaultValue={this.props.issueText}/>
                     </div>  
                 </div>

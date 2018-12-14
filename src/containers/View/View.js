@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ViewIssue from '../../components/ViewIssue/ViewIssue';
+import ViewIssue from '../../components/ViewIssue';
 
 class View extends Component{
     constructor(props){
@@ -8,10 +8,9 @@ class View extends Component{
         this.state = { data: [] };
     }
     makeViewRequest(formData) {
-        return axios.post(`http://localhost:3000/api/issue/View`, formData)
+        return axios.post(`http://localhost:3000/api/issues/View`, formData)
             .then((response)=>{
                 console.info(response);
-                localStorage.setItem('token', response.data.token);
             })
             .catch((error)=>{
                 console.error(error);
@@ -20,10 +19,10 @@ class View extends Component{
     }
     render(){
         return(
-            <ViewIssue makeCViewRequest = { ( formData ) => {this.makeViewRequest(formData) } }/>
+            <ViewIssue onView = { ( formData ) => {this.makeViewRequest(formData) } }/>
         )
     }
 
 }
 
-export default Create;
+export default View;

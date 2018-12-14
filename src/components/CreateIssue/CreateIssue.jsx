@@ -11,22 +11,22 @@ class CreateIssue extends PureComponent{
                 </div>
                 <div className="mainelements">
                     <div className="inputgroup">
-                        <label> Название задачи: </label>
+                        <span> Название задачи: </span>
                         <input type="text" name="name" />
                     </div>
 
                     <div className="inputgroup">                
-                        <label> Описание: </label>
+                        <span> Описание: </span>
                         <textarea type="text" name="message"/>
                     </div>
 
                     <div className="inputgroup">
-                        <label> Создатель задачи: </label>
-                        <label> Admin </label>
+                        <span> Создатель задачи: </span>
+                        <span> Admin </span>
                     </div> 
 
                     <div className="inputgroup"> 
-                        <label> Выберите исполнителя:</label>
+                        <span> Выберите исполнителя:</span>
                         <select >
                             <option value="Команда 1">Команда 1</option>
                             <option value="Команда 2">Команда 2</option>
@@ -36,7 +36,7 @@ class CreateIssue extends PureComponent{
                     </div>
 
                     <div className="inputgroup">
-                        <label> Выберите приоритет: </label>
+                        <span> Выберите приоритет: </span>
                         <select >
                             <option value="Lowest">Lowest</option>
                             <option value="Low">Low</option>
@@ -49,7 +49,7 @@ class CreateIssue extends PureComponent{
                     </div>
 
                     <div className="inputgroup">
-                        <label> Выберите kanban доску: </label>
+                        <span> Выберите kanban доску: </span>
                         <select >
                             <option value="Board1">Board1</option>
                             <option value="Board2">Board2</option>
@@ -59,7 +59,7 @@ class CreateIssue extends PureComponent{
                     </div>
 
                     <div className="inputgroup">
-                        <label> Дайте оценку задаче: </label>
+                        <span> Дайте оценку задаче: </span>
                         <input type="text" name="name" />
                     </div>  
                 </div>

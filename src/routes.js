@@ -1,10 +1,12 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom';
 import LoginPage from './components/LoginPage';
+import RegistrationPage from './components/RegistrationPage';
 
-const Routes = (props) =>(
+const Routes = () =>(
     <Switch>
-        <Route path="/q" component={LoginPage}/>
+        <Route exact path="/login" component={LoginPage}/>
+        <Route path="/register" component={RegistrationPage}/>
         {/*<Route path="*" component={NotFound}/>*/}
     </Switch>
 );

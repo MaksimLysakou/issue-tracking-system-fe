@@ -1,14 +1,16 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import LoginPage from './components/LoginPage';
-import RegistrationPage from './components/RegistrationPage';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import LoginPage from './containers/LogIn/LogIn';
+import RegistrationPage from './containers/Registration/Registration';
 
-const Routes = () =>(
-    <Switch>
-        <Route exact path="/login" component={LoginPage}/>
-        <Route path="/register" component={RegistrationPage}/>
-        {/*<Route path="*" component={NotFound}/>*/}
-    </Switch>
-);
+const Routes = () => {
+    return (
+        <Switch>
+            <Route exact path="/login" component = { LoginPage }/>
+            <Route path="/register" component = { RegistrationPage }/>
+            <Redirect to="/login" />
+        </Switch>
+    )
+};
 
-export  default Routes;
+export default Routes;

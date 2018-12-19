@@ -4,9 +4,9 @@ import Routes from './routes';
 
 class App extends Component {
   render() {
-    console.log(this.props.children)
     return (
       <div>
+
         <Routes/>
           {this.props.children}
       </div>

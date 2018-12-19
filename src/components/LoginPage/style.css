@@ -10,10 +10,14 @@
     flex-direction: column;
     justify-content: center;
     margin-top: 10px;
-    width: 283.91px;
+    min-width: 285px;
     }
+.login-page__input-text{
+    height: 35px;
+}
 .login-page__button{
-    width: 20%;
+    width: 40%;
+    height: 25px;
     margin-top: 10px;
     display: flex;
     justify-content: center;

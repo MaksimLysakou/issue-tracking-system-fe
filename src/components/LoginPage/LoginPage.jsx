@@ -11,6 +11,7 @@ class LoginPage extends PureComponent{
         };
         this.props.makeLogInRequest(logInData);
     }
+        
     render() {
         return (
             <div className="login-page">
@@ -28,7 +29,6 @@ class LoginPage extends PureComponent{
             </div>
         );
     }
-
 }
 
 LoginPage.propTypes = {

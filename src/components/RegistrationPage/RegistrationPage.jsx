@@ -13,6 +13,7 @@ class RegistrationPage extends PureComponent{
         };
         this.props.onRegistration(userToCreate);
     }
+        
     render() {
         return (
             <div className="registration-page">

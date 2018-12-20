@@ -2,6 +2,52 @@ import React, {PureComponent} from 'react';
 import './style.css';
 
 class CreateIssue extends PureComponent{
+
+    renderAssigneeList() {
+        const assigneeList = this.props.assigneeList;
+        const issueAssignee = this.props.issueAssignee;
+        
+        
+        return (
+            <select neme="issueGroup" id="issueGroup">
+                {
+                    assigneeList.map(assignee => (
+                        <option selected={assignee === issueAssignee}>{assignee}</option>
+                    ))
+                }
+            </select>
+        )
+    }
+
+    renderPriorityList() {
+        const priorityList = this.props.priorityList;
+        const issuePriority = this.props.issuePriority;
+
+        return (
+            <select neme="issuePriority" id="issuePriority">
+            {
+                priorityList.map(priority => (
+                    <option selected={priority === issuePriority}>{priority}</option>
+                ))
+            }
+        </select>
+        ) 
+    }
+    
+    renderBoardList() {
+        const boardList = this.props.boardList;
+        const issueBoard = this.props.issueBoard;
+
+        return (
+            <select neme="issueBoard" id="issueBoard">
+            {
+                boardList.map(board => (
+                    <option selected={board === issueBoard}>{board}</option>
+                ))
+            }
+        </select>
+        ) 
+    }
     
     render () {
         return ( 
@@ -27,36 +73,17 @@ class CreateIssue extends PureComponent{
 
                     <div className="inputgroup"> 
                         <span> Выберите исполнителя:</span>
-                        <select >
-                            <option value="Команда 1">Команда 1</option>
-                            <option value="Команда 2">Команда 2</option>
-                            <option value="Команда 3">Команда 3</option>
-                            <option value="Команда 4">Команда 4</option>
-                        </select>
+                        {this.renderAssigneeList()}
                     </div>
 
                     <div className="inputgroup">
-                        <span> Выберите приоритет: </span>
-                        <select >
-                            <option value="Lowest">Lowest</option>
-                            <option value="Low">Low</option>
-                            <option value="Normal">Normal</option>
-                            <option value="Medium">Medium</option>
-                            <option value="High">High</option>
-                            <option value="Highest">Highest</option>
-                            <option value="Blocker">Blocker</option>
-                        </select>
+                        <span> Выберите приоритет: </span>                       
+                        {this.renderPriorityList()}
                     </div>
-
                     <div className="inputgroup">
                         <span> Выберите kanban доску: </span>
-                        <select >
-                            <option value="Board1">Board1</option>
-                            <option value="Board2">Board2</option>
-                            <option value="Board3">Board3</option>
-
-                        </select>
-                    </div>
+                        {this.renderBoardList()}
+                     </div>
 
                     <div className="inputgroup">
                         <span> Дайте оценку задаче: </span>
@@ -65,7 +92,7 @@ class CreateIssue extends PureComponent{
                 </div>
                 <div className="createclose">
                     <p>
-                        <input type="submit" value="Добавить задачу" />
+                    <input type="submit" value="Добавить задачу" />
                         <input type="submit" value="Закрыть" />
                     </p>
                 </div>
@@ -73,5 +100,7 @@ class CreateIssue extends PureComponent{
             )  
         }
    }
+
+   
 
 export default CreateIssue;

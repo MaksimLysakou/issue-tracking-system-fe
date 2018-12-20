@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 import LoginPage from './components/LoginPage';
-import CreateIssue from './components/CreateIssue';
-import EditIssue from './components/EditIssue';
-import ViewIssue from './components/ViewIssue';
+import CreateIssue from './containers/Create/IntegrationCreate';
+import EditIssue from './containers/Edit/IntegrationEdit';
+import ViewIssue from './containers/View/IntegrationView';
 import Page404 from './components/Page404'
 const Routes = (props) =>(
     <Switch>

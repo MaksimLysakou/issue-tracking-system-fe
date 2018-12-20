@@ -47,6 +47,7 @@ class EditIssue extends PureComponent {
         </select>
         ) 
     }
+    
 
     render () {
         return ( 

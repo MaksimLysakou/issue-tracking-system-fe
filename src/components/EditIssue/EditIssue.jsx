@@ -105,15 +105,14 @@ class EditIssue extends PureComponent {
    }
 
 EditIssue.defaultProps = {
-    issueName: 'Some name',
-    issueMessage: 'Some message',
-    issueText: 'Some text',
-    issueAssignee: 'Group 4',
-    assigneeList: ['Group 1', 'Group 2', 'Group 3', 'Group 4'],
-    issuePriority: 'Normal',
-    priorityList: ['Lowest', 'Low', 'Normal', 'Medium', 'High', 'Highest', 'Blocker'],
-    issueBoard: 'Board3',
-    boardList: ['Board1','Board2','Board3']
+    issueName: '',
+    issueMessage: '',
+    issueText: '',
+    issueAssignee: '',
+    assigneeList: [],
+    issuePriority: '',
+    boardList: [],
+    issueBoard: ''
 }
 
 EditIssue.propTypes = {

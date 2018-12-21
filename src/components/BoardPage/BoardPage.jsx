@@ -7,8 +7,8 @@ const jwtDecode = require('jwt-decode');
 class BoardPage extends PureComponent{
     renderBoardArray(){
         console.log(jwtDecode(localStorage.getItem("token")));
-        return this.props.data.map(board => (
-            <Link key = { board._id } className = "board-page__board" to = {`board/${board._id}`}>Got boards</Link>
+        return this.props.data.map(data => (
+            <Link key = { data._id } className = "board-page__board" to = {`board/${data._id}`}>Got boards</Link>
         ))
     }
 

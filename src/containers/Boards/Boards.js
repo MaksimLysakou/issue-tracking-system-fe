@@ -16,7 +16,7 @@ class Boards extends Component{
         return axios.get(`http://localhost:3000/api/boards/`,
             { headers: { token: localStorage.getItem('token') , userId: jwtDecode(localStorage.getItem('token'))} })
             .then((response)=>{
-                console.info(response)
+                this.setState({ board: response })
             })
             .catch((error)=>{
                 console.error(error);

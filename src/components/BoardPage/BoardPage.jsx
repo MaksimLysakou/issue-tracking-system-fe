@@ -11,6 +11,7 @@ class BoardPage extends PureComponent{
             <Link key = { board._id } className = "board-page__board" to = {`board/${board._id}`}>Got boards</Link>
         ))
     }
+
     render(){
        return(
            <div className="board-page">

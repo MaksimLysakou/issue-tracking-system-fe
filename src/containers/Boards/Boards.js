@@ -10,16 +10,11 @@ class Boards extends Component{
     }
     componentDidMount(){
         this.makeBoardsRequest()
-        //
-
     }
 
     makeBoardsRequest() {
-        // decode token
-        // put userId into the data
-        // send it with token
         return axios.get(`http://localhost:3000/api/boards/`,
-            { headers: { token: localStorage.getItem('token') , userId: jwtDecode(localStorage.getItem(token))} })
+            { headers: { token: localStorage.getItem('token') , userId: jwtDecode(localStorage.getItem('token'))} })
             .then((response)=>{
                 console.info(response)
             })
@@ -27,10 +22,11 @@ class Boards extends Component{
                 console.error(error);
             })
     }
+
     createBoardRequest() {
         return axios.post(`http://localhost:3000/api/boards`, { token: localStorage.getItem('token') })
-            .then((response)=>{
-                console.info(response)
+            .then(()=>{
+                this.makeBoardsRequest();
             })
             .catch((error)=>{
                 console.error(error);
@@ -42,7 +38,6 @@ class Boards extends Component{
             <BoardPage data={this.state.data} createBoardRequest={this.createBoardRequest} />
         )
     }
-
 }
 
 export default Boards;

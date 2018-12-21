@@ -5,10 +5,17 @@ import {Link} from 'react-router-dom';
 const jwtDecode = require('jwt-decode');
 
 class BoardPage extends PureComponent{
+    onBoardCreate() {
+        const boardToCreate = {
+            board_name: this.boardName.value
+        };
+        this.props.onBoardRequest(boardToCreate);
+    }
+
     renderBoardArray(){
         console.log(jwtDecode(localStorage.getItem("token")));
         return this.props.data.map(data => (
-            <Link key = { data._id } className = "board-page__board" to = {`board/${data._id}`}>Got boards</Link>
+            <Link key = { data._id } className = "board-page__board" to = {`board/${data._id}`}>{data.board_name}</Link>
         ))
     }
 
@@ -18,10 +25,10 @@ class BoardPage extends PureComponent{
                <div className="board-page__createdBoards">
                    {this.renderBoardArray()}
                </div>
-               <Link className = "board-page__boardCreate" to = {'boards'} onClick={() => this.props.createBoardRequest()} >
                    <span>Create board </span>
-                   <input className= "board-page__boardCreate-boardName"/>
-               </Link>
+               <button className="board-page__createButton" onClick={this.onBoardCreate()}/>
+                   <input className= "board-page__boardCreate-boardName" ref = { ref=> this.boardName = ref }/>
+
            </div>
        )
     }

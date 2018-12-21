@@ -23,8 +23,8 @@ class Boards extends Component{
             })
     }
 
-    createBoardRequest() {
-        return axios.post(`http://localhost:3000/api/boards`, { token: localStorage.getItem('token') })
+    createBoardRequest(boardName) {
+        return axios.post(`http://localhost:3000/api/boards`, {boardName, token: localStorage.getItem('token') })
             .then(()=>{
                 this.makeBoardsRequest();
             })

@@ -1,0 +1,25 @@
+.board-page__board:hover{
+
+}
+
+.board-page{
+    padding-left: 50px;
+    padding-top:50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.board-page__createdBoards{
+    flex-direction: row;
+    border: black solid 1px;
+    margin-right: 10px;
+}
+
+.board-page__boardCreate{
+
+}
+
+.board-page__board{
+    margin: 10px;
+
+}

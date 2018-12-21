@@ -12,7 +12,10 @@ class LogIn extends Component{
         return axios.post(`http://localhost:3000/api/users/login`, formData)
             .then((response)=>{
                 localStorage.setItem('token', response.data.token);
-                this.setState({ shouldRedirect: true })
+                this.setState({ shouldRedirect: true });
+                if(this.state.shouldRedirect){
+                    return <Redirect to = '/boards'/>
+                }
             })
             .catch((error)=>{
                 console.error(error);

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import axios from 'axios';
 import BoardPage from "../../components/BoardPage/index";
 const jwtDecode = require('jwt-decode');
 
-class Boards extends Component{
+class Boards extends PureComponent{
     constructor(props){
         super(props);
         this.state = { data: [] };

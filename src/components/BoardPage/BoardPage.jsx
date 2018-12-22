@@ -2,7 +2,6 @@ import React, {PureComponent} from 'react';
 import propTypes from 'prop-types';
 import './style.css';
 import {Link} from 'react-router-dom';
-const jwtDecode = require('jwt-decode');
 
 class BoardPage extends PureComponent{
     onBoardCreate() {
@@ -13,7 +12,6 @@ class BoardPage extends PureComponent{
     }
 
     renderBoardArray(){
-        console.log(jwtDecode(localStorage.getItem("token")));
         return this.props.data.map(data => (
             <Link key = { data._id } className = "board-page__board" to = {`board/${data._id}`}>{data.board_name}</Link>
         ))

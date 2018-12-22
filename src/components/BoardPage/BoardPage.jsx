@@ -24,10 +24,13 @@ class BoardPage extends PureComponent{
            <div className="board-page">
                <div className="board-page__createdBoards">
                    {this.renderBoardArray()}
+                   <div className="board-page__board">
+                       <span> Название доски </span>
+                       <input className="board-page__boardCreate-boardName" ref={ref => this.boardName = ref}/>
+                       <button className="board-page__createButton" onClick={() => this.onBoardCreate()}> Create board </button>
+                    </div>
                </div>
-               <span>Create board </span>
-               <button className="board-page__createButton" onClick={() => this.onBoardCreate()}/>
-               <input className= "board-page__boardCreate-boardName" ref = { ref=> this.boardName = ref }/>
+
            </div>
        )
     }

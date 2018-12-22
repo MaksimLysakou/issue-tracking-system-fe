@@ -13,7 +13,7 @@ class RegistrationPage extends PureComponent{
         };
         this.props.onRegistration(userToCreate);
     }
-        
+
     render() {
         return (
             <div className="registration-page">
@@ -35,7 +35,7 @@ class RegistrationPage extends PureComponent{
                     <span>Пароль</span>
                     <input className="login-page__input" type="password" ref = { ref=> this.password = ref }/>
                 </div>
-                <button className="registration-page__button" onClick={ ( ) => {this.onRegistration()} }>Создать новый аккаунт</button>
+               <button className="registration-page__button" onClick={ ( ) => {this.onRegistration()} }>Создать новый аккаунт</button>
             </div>
         );
     }

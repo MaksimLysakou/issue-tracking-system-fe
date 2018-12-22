@@ -24,7 +24,7 @@ class Boards extends Component{
     }
 
     createBoardRequest(boardName) {
-        return axios.post(`http://localhost:3000/api/boards`, {boardName, token: localStorage.getItem('token') })
+        return axios.post(`http://localhost:3000/api/boards`, { boardName: boardName.board_name, token: localStorage.getItem('token') })
             .then(()=>{
                 this.makeBoardsRequest();
             })
@@ -35,7 +35,7 @@ class Boards extends Component{
 
     render(){
         return(
-            <BoardPage data={this.state.data} createBoardRequest={this.createBoardRequest} />
+            <BoardPage data={this.state.data} createBoardRequest={(boardName) => this.createBoardRequest(boardName)} />
         )
     }
 }

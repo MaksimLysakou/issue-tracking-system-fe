@@ -9,7 +9,7 @@ class BoardPage extends PureComponent{
         const boardToCreate = {
             board_name: this.boardName.value
         };
-        this.props.onBoardRequest(boardToCreate);
+        this.props.createBoardRequest(boardToCreate);
     }
 
     renderBoardArray(){
@@ -25,10 +25,9 @@ class BoardPage extends PureComponent{
                <div className="board-page__createdBoards">
                    {this.renderBoardArray()}
                </div>
-                   <span>Create board </span>
-               <button className="board-page__createButton" onClick={this.onBoardCreate()}/>
-                   <input className= "board-page__boardCreate-boardName" ref = { ref=> this.boardName = ref }/>
-
+               <span>Create board </span>
+               <button className="board-page__createButton" onClick={() => this.onBoardCreate()}/>
+               <input className= "board-page__boardCreate-boardName" ref = { ref=> this.boardName = ref }/>
            </div>
        )
     }

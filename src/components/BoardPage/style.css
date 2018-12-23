@@ -31,7 +31,8 @@
 .board-page__createButton{
     margin-top: 8px;
 }
-.board-page__boardCreate{
+
+.board-page__board{
     display: flex;
     width: 180px;
     height: 100px;
@@ -40,10 +41,7 @@
     justify-content: center;
     text-decoration: none;
     color: white;
-}
-
-.board-page__board {
-    transition: 0.5s;
     background: #4bbf6b;
     margin: 10px;
+    transition: 0.5s;
 }

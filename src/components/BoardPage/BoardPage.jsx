@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import propTypes from 'prop-types';
-import './style.css';
 import {Link} from 'react-router-dom';
+import './style.css';
 
 class BoardPage extends PureComponent{
     onBoardCreate() {
@@ -28,7 +28,6 @@ class BoardPage extends PureComponent{
                        <button className="board-page__createButton" onClick={() => this.onBoardCreate()}> Create board </button>
                     </div>
                </div>
-
            </div>
        )
     }

@@ -3,12 +3,12 @@ import propTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import './style.css';
 
-class BoardPage extends PureComponent{
+class BoardsPage extends PureComponent{
     onBoardCreate() {
         const boardToCreate = {
             board_name: this.boardName.value
         };
-        this.props.createBoardRequest(boardToCreate);
+        this.props.createBoardsRequest(boardToCreate);
     }
 
     renderBoardArray(){
@@ -33,9 +33,9 @@ class BoardPage extends PureComponent{
     }
 }
 
-BoardPage.propTypes = {
+BoardsPage.propTypes = {
     data: propTypes.array.isRequired,
-    createBoardRequest: propTypes.func.isRequired,
+    createBoardsRequest: propTypes.func.isRequired,
 };
 
-export default BoardPage;
+export default BoardsPage;

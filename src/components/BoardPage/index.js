@@ -1,2 +1,2 @@
-import BoardPage from './BoardPage'
+import BoardPage from './BoardsPage'
 export default BoardPage;

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
-import BoardPage from "../../components/BoardPage/index";
+import BoardsPage from "../../components/BoardPage/index";
 const jwtDecode = require('jwt-decode');
 
 class Boards extends PureComponent{
@@ -23,7 +23,7 @@ class Boards extends PureComponent{
             })
     }
 
-    createBoardRequest(boardName) {
+    createBoardsRequest(boardName) {
         return axios.post(`http://localhost:3000/api/boards`, { boardName: boardName.board_name, token: localStorage.getItem('token') })
             .then(()=>{
                 this.makeBoardsRequest();
@@ -35,7 +35,7 @@ class Boards extends PureComponent{
 
     render(){
         return(
-            <BoardPage data={this.state.data} createBoardRequest={(boardName) => this.createBoardRequest(boardName)} />
+            <BoardsPage data={this.state.data} createBoardsRequest={(boardName) => this.createBoardsRequest(boardName)} />
         )
     }
 }

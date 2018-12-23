@@ -25,8 +25,7 @@ class Backlog extends PureComponent{
 
     render(){
         return(
-            <BacklogPage data={[{name:"testIssue"}, {name:"testIssue2"}, {name:"testIssue3"}, {name:"testIssue4"},
-                {name:"testIssue5"}, {name:"testIssue6"},{name:"testIssue7"}, {name:"testIssue8"}]} />
+            <BacklogPage data={this.state.data} />
         )
     }
 }

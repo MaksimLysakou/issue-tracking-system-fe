@@ -1,0 +1,12 @@
+.backlog{
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.backlog-issue__button{
+    display: flex;
+    flex-direction: row;
+    border: solid black 1px;
+    margin-bottom: 10px;
+}

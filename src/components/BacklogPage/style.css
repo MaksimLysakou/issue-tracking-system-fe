@@ -1,5 +1,6 @@
 .backlog{
     display:flex;
+    align-items: center;
     flex-direction: column;
     padding: 10px;
 }
@@ -8,5 +9,18 @@
     display: flex;
     flex-direction: row;
     border: solid black 1px;
-    margin-bottom: 10px;
+    width: 100%;
+    height: 100%;
+    background: #4bbf6b;
+    margin: 3px;
+    transition: 0.5s;
+}
+
+.backlog__backlog-issue{
+    width: 80%;
+
+}
+
+.backlog-issue__button:hover {
+    background: #489048;
 }

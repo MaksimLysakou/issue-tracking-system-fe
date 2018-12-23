@@ -1,14 +1,17 @@
 import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
 import './style.css';
-/*import {Link} from 'react-router-dom';*/
+import BacklogIssue from '../../containers/BacklogIssue/BacklogIssue'
 
 class BacklogPage extends PureComponent {
     renderBacklogArray(){
         return this.props.data.map(data => (
-            <div className= "backlog__backlog-issue">
-                <button key = { data._id } className = "backlog-issue__button">{ data.issue_name }</button>
-            </div>
+            <BacklogIssue
+                key={data._id}
+                name={data.name}
+                assigneeId={data.assignee_id}
+                priorityId={data.priority_id}
+            />
         ))
     }
     render(){

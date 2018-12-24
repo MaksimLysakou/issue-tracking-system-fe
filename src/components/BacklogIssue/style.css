@@ -4,7 +4,10 @@
     width: 100%;
     margin-bottom: 5px;
     margin-top: 5px;
-    background: #66ff29;
+    background: #4bbf6b;
+    border:none;
+    color:white;
+    font-weight: bold;
 }
 
 .backlog-issue__content{

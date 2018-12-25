@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
 import propTypes from 'prop-types'
-import BacklogIssue from "../../components/BacklogIssue";
+import Issue from "../../components/Issue";
 
-class BacklogIssueContainer extends PureComponent{
+class IssueContainer extends PureComponent{
     constructor(props){
         super(props);
         this.state = {
@@ -47,7 +47,7 @@ class BacklogIssueContainer extends PureComponent{
     }
     render(){
         return(
-            <BacklogIssue
+            <Issue
                 firstName={ this.state.firstName }
                 lastName={ this.state.lastName }
                 name={ this.props.name }
@@ -57,11 +57,11 @@ class BacklogIssueContainer extends PureComponent{
     }
 }
 
-BacklogIssueContainer.propTypes={
+IssueContainer.propTypes={
     assigneeId: propTypes.string,
     name: propTypes.string.isRequired,
     priorityId: propTypes.string
 
 };
 
-export default BacklogIssueContainer
+export default IssueContainer

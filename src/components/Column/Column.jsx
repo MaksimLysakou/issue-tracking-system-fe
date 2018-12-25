@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
-import './style.css';
+import "./style.css";
 import Issue from '../../containers/Issue/Issue'
 
-class BacklogPage extends PureComponent {
-    renderBacklogArray(){
+class Column extends PureComponent{
+    renderIssueArray(){
         return this.props.data.map(data => (
             <Issue
                 key={data._id}
@@ -16,15 +16,21 @@ class BacklogPage extends PureComponent {
     }
     render(){
         return(
-            <div className="backlog">
-                {this.renderBacklogArray()}
+            <div className="column">
+                <div className="column-header">
+                    {this.props.name}
+                </div>
+                <div className="column-issues">
+                    {this.renderIssueArray()}
+                </div>
             </div>
         )
     }
 }
 
-BacklogPage.propTypes = {
-    data: propTypes.array.isRequired,
+Column.propTypes = {
+    data: propTypes.array,
+    name: propTypes.string.isRequired
 };
 
-export default BacklogPage
+export default Column;

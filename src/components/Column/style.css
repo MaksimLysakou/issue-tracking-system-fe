@@ -1,0 +1,18 @@
+.column{
+    display: flex;
+    flex-direction: column;
+    background: #dfe3e6;
+}
+
+.column-header{
+    width: 100%;
+    margin-bottom: 5px;
+    background: #dfe3e6
+}
+
+.column-issues{
+    width: 100%;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}

@@ -1,14 +1,15 @@
 .column{
     display: flex;
     flex-direction: column;
-    background: #dfe3e6;
     flex:1;
+    padding:5px;
 }
 
 .column-header{
     width: 100%;
     margin-bottom: 5px;
-    background: #dfe3e6
+    justify-content: center;
+    align-items: center;
 }
 
 .column-issues{

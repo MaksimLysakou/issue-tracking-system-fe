@@ -19,7 +19,7 @@ class ColumnContainer extends PureComponent{
                 headers: { token: localStorage.getItem('token')}
             })
             .then((response)=>{
-                this.setState({ data: response.data.foundIssues })
+                this.setState({ data: response.data.gotIssues })
             })
             .catch((error) =>{
                 console.error(error);

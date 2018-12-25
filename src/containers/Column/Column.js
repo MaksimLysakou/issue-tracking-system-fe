@@ -36,3 +36,5 @@ ColumnContainer.propTypes = {
     column_name: propTypes.string.isRequired,
     column_id: propTypes.string.isRequired
 };
+
+export default ColumnContainer;

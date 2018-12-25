@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import Routes from './routes';
+import './App.css'
 
 class App extends Component {
   render() {
     return (
-      <div>
-
+      <div className="app">
         <Routes/>
-          {this.props.children}
       </div>
     );
   }

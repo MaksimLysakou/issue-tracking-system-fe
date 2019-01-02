@@ -5,11 +5,11 @@ import {Link} from 'react-router-dom';
 
 class LoginPage extends PureComponent{
     onLogIn() {
-        const logInData = {
+        const formData = {
             email: this.email.value,
             password: this.password.value,
         };
-        this.props.makeLogInRequest(logInData);
+        this.props.makeLogInRequest(formData);
     }
     render() {
         return (

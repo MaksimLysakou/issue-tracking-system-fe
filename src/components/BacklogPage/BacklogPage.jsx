@@ -5,6 +5,7 @@ import Issue from '../../containers/Issue/Issue'
 
 class BacklogPage extends PureComponent {
     renderBacklogArray(){
+
         return this.props.data.map(data => (
             <Issue
                 key={data._id}
@@ -18,6 +19,9 @@ class BacklogPage extends PureComponent {
         return(
             <div className="backlog">
                 {this.renderBacklogArray()}
+                <button className = "backlog-issue_open-creating-form">
+                    Создать задачу
+                </button>
             </div>
         )
     }

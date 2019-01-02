@@ -5,7 +5,7 @@
     padding: 10px;
 }
 
-.backlog-issue__button{
+/*.backlog-issue__button{
     display: flex;
     flex-direction: row;
     border: solid black 1px;
@@ -14,13 +14,13 @@
     background: #4bbf6b;
     margin: 3px;
     transition: 0.5s;
-}
+}*/
 
 .backlog__backlog-issue{
     width: 80%;
 
 }
 
-.backlog-issue__button:hover {
+/*.backlog-issue__button:hover {
     background: #489048;
-}
+}*/

@@ -15,7 +15,7 @@ const Routes = () => {
             <Route path="/boards" component = { BoardsPage }/>
             <Route path="/backlog" component = { Backlog }/>
             <Route path="/board" component = { BoardPageView }/>
-            <Route path="/issue" component ={ IssueView}/>
+            <Route path="/issue" component ={ IssueView }/>
 
             <Redirect to="/login" />
         </Switch>

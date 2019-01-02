@@ -49,11 +49,10 @@ class IssueView extends PureComponent {
     }
 
     renderBoardList() {
-        const boardList = this.props.boards;
+        const board_array = this.props.board_array;
         const board_name = this.props.board_name;
         return (
             <select
-                ref = {(ref) => { this.board_id = ref; }}
                 onChange={(event) => {
                     const selectedIndex = event.target.options.selectedIndex;
                     this.setState({ board_id:event.target.options[selectedIndex].getAttribute('board_id') },
@@ -62,10 +61,11 @@ class IssueView extends PureComponent {
                 }}
             >
                 {
-                    boardList.map(board => (
-                        <option key={board.board_id}
-                                board_id = { board.board_id }
-                                selected = { board === board_name }
+                    board_array.map(board => (
+                        <option
+                            key={board.board_id}
+                            board_id = { board.board_id }
+                            selected = { board.board_id === board_name }
                         >
                             { board.board_name }
                             </option>
@@ -104,17 +104,17 @@ class IssueView extends PureComponent {
     }
 
     renderPriorityList() {
-        const priorityList = this.props.priorities ;
+        const priority_array = this.props.priority_array ;
         const current_priority_id = this.props.current_priority_id;
 
         return (
-            <select ref={(ref) => {this.priorityName = ref;}} onChange={(event) => {
+            <select onChange={(event) => {
                 const selectedIndex = event.target.options.selectedIndex;
                 this.setState(event.target.options[selectedIndex].getAttribute('priority_id'));
             }}>
                 {
-                    priorityList.map(priority => (
-                        <option key={priority._id}
+                    priority_array.map(priority => (
+                        <option key={priority.priority_id}
                                 priority_id={priority.priority_id}
                                 selected={priority.priority_id === current_priority_id}
                         >
@@ -186,17 +186,14 @@ IssueView.propTypes = {
     current_column_id: propTypes.string,
     current_priority_id: propTypes.string,
     reporter_email: propTypes.string.isRequired,
-    assignee_email: propTypes.string,
     description: propTypes.string,
-    name: propTypes.string.isRequired,
+    issue_name: propTypes.string.isRequired,
     estimation: propTypes.string,
-    column_names: propTypes.array.isRequired,
-    column_name: propTypes.string,
-    priority_names: propTypes.array.isRequired,
-    priorities: propTypes.array.isRequired,
-    assignees: propTypes.array.isRequired,
-    priority_name: propTypes.string,
-    controls: propTypes.node,
+    assignee_array: propTypes.array.isRequired,
+    priority_array: propTypes.array.isRequired,
+    column_array: propTypes.array.isRequired,
+    board_array: propTypes.array.isRequired,
+    makeUpdateRequest: propTypes.func,
 };
 
 export default IssueView;

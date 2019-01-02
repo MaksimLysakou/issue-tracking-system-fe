@@ -51,7 +51,7 @@ class IssueViewContainer extends PureComponent{
             { headers: localStorage.getItem('token') })
             .then((response) => {
                 this.setState( {
-                    boards: response.data
+                    board_array: response.data
                 })
 
             })
@@ -65,7 +65,7 @@ class IssueViewContainer extends PureComponent{
             {headers: localStorage.getItem('token')})
             .then((response)=>{
                 this.setState( {
-                    assignees: response.data.result
+                    assignee_array: response.data.result
                 })
             })
             .catch((error)=>{
@@ -78,7 +78,7 @@ class IssueViewContainer extends PureComponent{
         return axios.get(`http://localhost:3000/api/columns/${this.props.board_id}`,
             { headers: { token: localStorage.getItem('token') } })
             .then((response)=>{
-                this.setState({ data: response.data.gotColumns })
+                this.setState({ column_array: response.data.gotColumns })
             })
             .catch((error)=>{
                 console.error(error);
@@ -89,7 +89,7 @@ class IssueViewContainer extends PureComponent{
         return axios.get(`http://localhost:3000/api/priorities/`,
             { headers: { token: localStorage.getItem('token') } })
             .then((response)=>{
-                this.setState({ priorities: response.data.gotPriorities })
+                this.setState({ priority_array: response.data.gotPriorities })
             })
             .catch((error)=>{
                 console.error(error);
@@ -106,15 +106,16 @@ class IssueViewContainer extends PureComponent{
     render(){
         return(
             <IssueView
-                boards = {this.state.boards}
+                board_array = {this.state.board_array}
                 reporter_email = {this.state.reporter_email}
-                assignees = {this.state.assignees}
-                current_assignee_id = {this.props.user_id}
-                name = {this.props.name}
-                columns = {this.state.columns}
-                current_column_id = {this.props.column_id}
-                priorities = {this.state.priorities}
-                current_priority_id = {this.props.data.priority_id}
+                assignee_array = {this.state.assignee_array}
+                current_assignee_id = {this.props.current_assignee_id}
+                issue_name = {this.props.issue_name}
+                column_array = {this.state.column_array}
+                current_column_id = {this.props.current_column_id}
+                priority_array = {this.state.priority_array}
+                current_priority_id = {this.props.data.current_priority_id}
+                makeUpdateRequest = { ( formData ) => {this.makeUpdateRequest(formData) } }
             />
         )
     }
@@ -122,7 +123,13 @@ class IssueViewContainer extends PureComponent{
 
 IssueViewContainer.propTypes = {
     reporter_id: propTypes.string.isRequired,
-    result: propTypes.array.isRequired,
+    issue_id: propTypes.string.isRequired,
+    current_assignee_id: propTypes.string,
+    current_column_id: propTypes.string,
+    current_priority_id: propTypes.string,
+    description: propTypes.string,
+    issue_name: propTypes.string.isRequired,
+    estimation: propTypes.string,
 };
 
 export default IssueViewContainer;

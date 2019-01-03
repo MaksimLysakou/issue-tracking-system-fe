@@ -9,9 +9,10 @@ class BacklogPage extends PureComponent {
         return this.props.data.map(data => (
             <Issue
                 key={data._id}
-                name={data.name}
-                assigneeId={data.assignee_id}
-                priorityId={data.priority_id}
+                issue_name={data.name}
+                assignee_id={data.assignee_id}
+                priority_id={data.priority_id}
+                issue_id={data.issue_id}
             />
         ))
     }
@@ -19,9 +20,6 @@ class BacklogPage extends PureComponent {
         return(
             <div className="backlog">
                 {this.renderBacklogArray()}
-                <button className = "backlog-issue_open-creating-form">
-                    Создать задачу
-                </button>
             </div>
         )
     }

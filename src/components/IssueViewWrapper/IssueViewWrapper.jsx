@@ -1,7 +1,5 @@
 import React, {PureComponent} from 'react';
-import propTypes from 'prop-types';
 import './style.css';
-import IssueView from "../IssueView/IssueView";
 
 class IssueViewWrapper extends PureComponent{
     constructor(props){

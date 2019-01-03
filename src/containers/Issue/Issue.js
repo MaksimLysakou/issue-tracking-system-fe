@@ -70,7 +70,6 @@ IssueContainer.propTypes={
     description: propTypes.string,
     estimation: propTypes.string,
     issue_id: propTypes.string.isRequired,
-
 };
 
 export default IssueContainer

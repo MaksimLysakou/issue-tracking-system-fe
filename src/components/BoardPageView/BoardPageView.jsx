@@ -9,7 +9,7 @@ class BoardPageView extends PureComponent {
         return this.props.data.map(data => (
             <ColumnContainer
                 column_name={data.column_name}
-                column_id={data.column_id}
+                column_id={data._id}
             />
         ))
     }

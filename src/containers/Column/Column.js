@@ -6,11 +6,43 @@ import Column from "../../components/Column";
 class ColumnContainer extends PureComponent{
     constructor(props){
         super(props);
-        this.state = { data: [] };
+        this.state = { data: [
+                {
+                    _id: "5c2e3781113e7b42b83ac8b0",
+                    assignee_id: "",
+                    description: "",
+                    name: "testIssue",
+                    estimation: "1 m/d",
+                    column_id: "5c2e30e4fe742a43f0e08eb8",
+                    priority_id: "5c18db05b61f53194c8cdb2c",
+                    __v: 0
+                },
+                {
+                    _id: "5c2e3784113e7b42b83ac8b1",
+                    assignee_id: "",
+                    description: "",
+                    name: "testIssue",
+                    estimation: "1 m/d",
+                    column_id: "5c2e30e4fe742a43f0e08eb8",
+                    priority_id: "5c18db05b61f53194c8cdb2c",
+                    __v: 0
+                },
+                {
+                    _id: "5c2e3785113e7b42b83ac8b2",
+                    assignee_id : "",
+                    description : "",
+                    name : "testIssue",
+                    estimation : "1 m/d",
+                    column_id : "5c2e30e4fe742a43f0e08eb8",
+                    priority_id : "5c18db05b61f53194c8cdb2c",
+                    __v : 0
+                }
+            ]
+        };
     }
 
     componentDidMount(){
-        this.makeIssueRequest()
+        /*this.makeIssueRequest()*/
     }
 
     makeIssueRequest(){

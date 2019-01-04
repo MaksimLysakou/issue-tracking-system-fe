@@ -7,15 +7,28 @@ class IssueViewContainer extends PureComponent{
     constructor(props){
         super(props);
         this.state = {
-            reporter_email:'',
+            reporter_email: "1@gmail.com",
             assignee_emails: [],
-            name:'',
-            column_names:[],
-            priority_names:[]
+            name: "testIssue",
+            priority_array:[
+                {_id:"131221adwsfweqewq1", priority_name:"None"},
+                {_id:"131221adwsfweqewq2", priority_name:"Lowest"},
+                {_id:"131221adwsfweqewq3", priority_name:"Low"},
+                {_id:"131221adwsfweqewq4", priority_name:"Normal"},
+                {_id:"131221adwsfweqewq5", priority_name:"Medium"},
+                {_id:"131221adwsfweqewq6", priority_name:"High"},
+                {_id:"131221adwsfweqewq7", priority_name:"Highest"},
+                {_id:"131221adwsfweqewq8", priority_name:"Blocker"}
+                ],
+            column_array:[
+                {_id: "5c2e30e4fe742a43f0e08eb8",column_name: "TODO", board_id: "5c2e30e4fe742a43f0e08eb6"},
+                {_id: "5c2e30e4fe742a43f0e08eb9",column_name: "In progress",board_id:"5c2e30e4fe742a43f0e08eb6"},
+                {_id: "5c2e30e4fe742a43f0e08eba",column_name: "Code review",board_id:"5c2e30e4fe742a43f0e08eb6"},
+                {_id: "5c2e30e4fe742a43f0e08ebb",column_name: "Done",board_id:"5c2e30e4fe742a43f0e08eb6"}],
         };
     }
 
-    makeUpdateRequest(formData){
+    /*makeUpdateRequest(formData){
         return axios.put(`http://localhost:3000/issues/${this.props._id}`, formData,
             {headers: localStorage.getItem('token')})
             .then((response)=>{
@@ -31,7 +44,7 @@ class IssueViewContainer extends PureComponent{
                 this.makeAssigneeRequest();
                 this.makePriorityRequest();
             })
-    }
+    }*/
     makeReporterRequest(){
         return axios.get(`http://localhost:3000/users/${this.props.reporter_id}`,
             {headers: localStorage.getItem('token')})

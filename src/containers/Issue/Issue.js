@@ -7,14 +7,14 @@ class IssueContainer extends PureComponent{
     constructor(props){
         super(props);
         this.state = {
-            assignee_email: '',
-            priority_name: undefined,
+            assignee_email: "1@gmail.com",
+            priority_name: "None",
         };
     }
 
     componentDidMount(){
-        this.makeAssigneeRequest();
-        this.makePriorityRequest();
+        /*this.makeAssigneeRequest();*/
+        /*this.makePriorityRequest();*/
     }
 
     makeAssigneeRequest(){

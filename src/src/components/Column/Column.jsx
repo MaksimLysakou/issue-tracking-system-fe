@@ -9,7 +9,6 @@ class Column extends PureComponent{
             <IssueContainer
                 key = { data.issue_id }
                 issue_name = { data.name }
-                reporter_id = { data.reporter_id }
                 assignee_id = { data.assignee_id }
                 priority_id = { data.priority_id }
                 column_id = { data.column_id }

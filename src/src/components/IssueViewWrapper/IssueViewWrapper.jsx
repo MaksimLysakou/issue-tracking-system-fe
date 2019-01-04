@@ -7,10 +7,6 @@ class IssueViewWrapper extends PureComponent{
         this.state = {shouldRender:false}
     }
 
-    shouldRender(){
-
-    }
-
     render(){
         if (this.props.shouldRender === false){
             return(null)
@@ -18,7 +14,7 @@ class IssueViewWrapper extends PureComponent{
 
         else{
             return(
-                <div className="IssueViewWrapper" > {this.props.children} </div>
+                <div className="IssueViewWrapper"> {this.props.children} </div>
             )
         }
     }

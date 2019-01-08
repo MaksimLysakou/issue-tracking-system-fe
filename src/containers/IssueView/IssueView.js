@@ -7,9 +7,20 @@ class IssueViewContainer extends PureComponent{
     constructor(props){
         super(props);
         this.state = {
-            reporter_email: "1@gmail.com",
-            assignee_emails: [],
+            reporter_email: "reporter@gmail.com",
+            assignee_emails: ["assignee1@gmail.com", "assignee2@gmail.com"],
             name: "testIssue",
+            assignee_array:[
+                {
+                    _id:"asdasdadasdsfsdgsd", email:"assignee1@gmail.com"
+                },
+                {
+                    _id:"asdasfsdgsdgdfgdffd", email:"assignee2@gmail.com"
+                },
+                {
+                    _id:"asdslkfjesijvmdkjng", email:"assignee3@gmail.com"
+                }
+            ],
             priority_array:[
                 {_id:"131221adwsfweqewq1", priority_name:"None"},
                 {_id:"131221adwsfweqewq2", priority_name:"Lowest"},
@@ -24,7 +35,13 @@ class IssueViewContainer extends PureComponent{
                 {_id: "5c2e30e4fe742a43f0e08eb8",column_name: "TODO", board_id: "5c2e30e4fe742a43f0e08eb6"},
                 {_id: "5c2e30e4fe742a43f0e08eb9",column_name: "In progress",board_id:"5c2e30e4fe742a43f0e08eb6"},
                 {_id: "5c2e30e4fe742a43f0e08eba",column_name: "Code review",board_id:"5c2e30e4fe742a43f0e08eb6"},
-                {_id: "5c2e30e4fe742a43f0e08ebb",column_name: "Done",board_id:"5c2e30e4fe742a43f0e08eb6"}],
+                {_id: "5c2e30e4fe742a43f0e08ebb",column_name: "Done",board_id:"5c2e30e4fe742a43f0e08eb6"}
+                ],
+            board_array:[
+                {_id: "5c2e30e4fe742a43f0e08eb8",board_name: "testBoard1"},
+                {_id: "5c2e30e4fe742a43f0e08eb6",board_name: "testBoard2"},
+                {_id: "5c2e30e4fe742a43f0e08eb7",board_name: "testBoard3"}
+            ]
         };
     }
 
@@ -110,10 +127,10 @@ class IssueViewContainer extends PureComponent{
     }
 
     componentDidMount(){
-        this.makeReporterRequest();
+        /*this.makeReporterRequest();
         this.makeAssigneeRequest();
         this.makePriorityRequest();
-        this.makeBoardsRequest();
+        this.makeBoardsRequest();*/
     }
 
     render(){
@@ -126,8 +143,10 @@ class IssueViewContainer extends PureComponent{
                 issue_name = {this.props.issue_name}
                 column_array = {this.state.column_array}
                 current_column_id = {this.props.current_column_id}
+                description = {this.props.description}
                 priority_array = {this.state.priority_array}
-                current_priority_id = {this.props.data.current_priority_id}
+                estimation = {this.props.estimation}
+                current_priority_id = {this.props.current_priority_id}
                 makeUpdateRequest = { ( formData ) => {this.makeUpdateRequest(formData) } }
             />
         )

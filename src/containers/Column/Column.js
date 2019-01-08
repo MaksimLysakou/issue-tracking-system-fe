@@ -9,8 +9,9 @@ class ColumnContainer extends PureComponent{
         this.state = { data: [
                 {
                     _id: "5c2e3781113e7b42b83ac8b0",
-                    assignee_id: "",
-                    description: "",
+                    assignee_id: "testAssigneeId",
+                    reporter_id: "testReporterId",
+                    description: "testDescription",
                     name: "testIssue",
                     estimation: "1 m/d",
                     column_id: "5c2e30e4fe742a43f0e08eb8",
@@ -19,8 +20,9 @@ class ColumnContainer extends PureComponent{
                 },
                 {
                     _id: "5c2e3784113e7b42b83ac8b1",
-                    assignee_id: "",
-                    description: "",
+                    assignee_id: "testAssigneeId",
+                    reporter_id: "testReporterId",
+                    description: "testDescription",
                     name: "testIssue",
                     estimation: "1 m/d",
                     column_id: "5c2e30e4fe742a43f0e08eb8",
@@ -29,8 +31,9 @@ class ColumnContainer extends PureComponent{
                 },
                 {
                     _id: "5c2e3785113e7b42b83ac8b2",
-                    assignee_id : "",
-                    description : "",
+                    assignee_id : "testAssigneeId",
+                    reporter_id: "testReporterId",
+                    description : "testDescriprion",
                     name : "testIssue",
                     estimation : "1 m/d",
                     column_id : "5c2e30e4fe742a43f0e08eb8",

@@ -5,13 +5,24 @@ import IssueViewWrapper from "../IssueViewWrapper";
 import IssueViewContainer from "../../containers/IssueView/IssueView";
 
 class Issue extends PureComponent{
+    constructor(props){
+        super(props);
+        this.state = { shouldRender: this.props.shouldRender };
+    }
     render(){
         return(
-            <button className = "issue">
-                <span className="issue__content">{this.props.issue_name}</span>
-                <span className="issue__content">{this.props.priority_name}</span>
-                <span className= "issue__content">{this.props.assignee_email}</span>
-                <IssueViewWrapper>
+            <div>
+                <button className = "issue" onClick={()=> this.setState({shouldRender:true})}>
+                    <span className="issue__content">{this.props.issue_name}</span>
+                    <span className="issue__content">{this.props.priority_name}</span>
+                    <span className= "issue__content">{this.props.assignee_email}</span>
+                </button>
+                <IssueViewWrapper
+                    shouldRender={this.state.shouldRender}
+                    onClickOutside={() => {
+                        this.setState({shouldRender: false});
+                    }}
+                >
                     <IssueViewContainer
                         reporter_id={this.props.reporter_id}
                         issue_id={this.props.issue_id}
@@ -23,9 +34,13 @@ class Issue extends PureComponent{
                         estimation={this.props.estimation}
                     />
                 </IssueViewWrapper>
-            </button>
+            </div>
         )
     }
+}
+
+Issue.defaultProps = {
+    shouldRender:false,
 }
 
 Issue.propTypes ={
@@ -39,6 +54,7 @@ Issue.propTypes ={
     current_priority_id: propTypes.string,
     description: propTypes.string,
     estimation: propTypes.string,
+    shouldRender: propTypes.boolean,
 };
 
 export default Issue

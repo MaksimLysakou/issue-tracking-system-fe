@@ -16,7 +16,6 @@ class Column extends PureComponent{
                 description = { data.description }
                 estimation = { data.estimation }
                 issue_id = { data.issue_id }
-
             />
         ))
     }

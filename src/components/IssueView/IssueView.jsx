@@ -7,7 +7,7 @@ class IssueView extends PureComponent {
         const formData = {
             assignee_id: this.state.assignee_id,
             priority_id: this.state.priority_id,
-            issueName: this.issueName.value,
+            issue_name: this.issueName.value,
             description: this.description.value,
             estimation: this.estimation.value,
             board_id: this.state.board_id,
@@ -23,7 +23,7 @@ class IssueView extends PureComponent {
     }
 
     renderAssigneeList() {
-        const assigneeList = this.props.assignees;
+        const assigneeList = this.props.assignee_array;
         const current_assignee_id = this.props.current_assignee_id;
 
         return (
@@ -36,11 +36,11 @@ class IssueView extends PureComponent {
             >
                 {
                     assigneeList.map(assignee => (
-                        <option key = { assignee.user_id }
-                                asignee_id = { assignee.user_id }
+                        <option key = { assignee._id }
+                                asignee_id = { assignee._id }
                                 selected = { assignee.user_id === current_assignee_id }
                         >
-                            { assignee.first_name } { assignee.last_name }
+                            { assignee.email }
                             </option>
                     ))
                 }
@@ -132,7 +132,7 @@ class IssueView extends PureComponent {
                 <div className="issue-view__body">
                     <div className="issue-view__body-issue">
                         <span> Название задачи: </span>
-                        <input defaultValue={this.props.issueName} ref={(ref) => {this.issueName = ref;}}/>
+                        <input defaultValue={this.props.issue_name} ref={(ref) => {this.issue_name = ref;}}/>
                     </div>
                     <div className="issue-view__body-issue">
                         <span> Описание: </span>

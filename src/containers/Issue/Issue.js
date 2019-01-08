@@ -61,10 +61,14 @@ class IssueContainer extends PureComponent{
         )
     }
 }
+IssueContainer.defaultProps ={
+    reporter_id: "31eqweqwwewew23423sfs",
+    priority_id: "131221adwsfweqewq1"
+}
 
 IssueContainer.propTypes={
     issue_name: propTypes.string.isRequired,
-    reported_id: propTypes.string,
+    reporter_id: propTypes.string,
     assignee_id: propTypes.string,
     priority_id: propTypes.string,
     column_id: propTypes.string,

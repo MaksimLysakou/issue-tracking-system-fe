@@ -7,7 +7,7 @@ class IssueView extends PureComponent {
         const formData = {
             assignee_id: this.state.assignee_id,
             priority_id: this.state.priority_id,
-            issue_name: this.issueName.value,
+            issue_name: this.issue_name.value,
             description: this.description.value,
             estimation: this.estimation.value,
             board_id: this.state.board_id,
@@ -53,6 +53,7 @@ class IssueView extends PureComponent {
         const board_name = this.props.board_name;
         return (
             <select
+                ref={(ref) => {this.board_id = ref;}}
                 onChange={(event) => {
                     const selectedIndex = event.target.options.selectedIndex;
                     this.setState({ board_id:event.target.options[selectedIndex].getAttribute('board_id') },
@@ -81,7 +82,7 @@ class IssueView extends PureComponent {
 
         return (
             <select
-                ref={(ref) => {this.board_id = ref;}}
+                ref={(ref) => {this.column_id = ref;}}
                 onChange={(event) => {
                     const selectedIndex = event.target.options.selectedIndex;
                     this.setState({ board_id:event.target.options[selectedIndex].getAttribute('column_id') }
@@ -108,7 +109,9 @@ class IssueView extends PureComponent {
         const current_priority_id = this.props.current_priority_id;
 
         return (
-            <select onChange={(event) => {
+            <select
+              ref = {(ref)=>{this.priority_id = ref;}}
+              onChange={(event) => {
                 const selectedIndex = event.target.options.selectedIndex;
                 this.setState(event.target.options[selectedIndex].getAttribute('priority_id'));
             }}>
@@ -161,7 +164,7 @@ class IssueView extends PureComponent {
                         <input defaultValue={this.props.estimation} ref={(ref) => {this.estimation = ref;}}/>
                     </div>
                     <div className="issue-view__buttons">
-                        <button className="issue-view__buttons-edit" onClick={()=> this.onUpdate()}/>
+                      <button className="issue-view__buttons-edit" onClick={()=> this.onUpdate()}> Обновить задачу </button>
                     </div>
                 </div>
             </div>

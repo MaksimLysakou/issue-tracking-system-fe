@@ -1,6 +1,7 @@
 .board-column{
     display: flex;
     flex-direction: row;
-    padding:5px;
+    padding:10px;
     background-color: #4bbf6b;
+    height:91%;
 }

@@ -21,6 +21,7 @@ class App extends Component {
           <Link className="header-button" to="/boards">
             Boards
           </Link>
+          <Link className="header-button" to="/backlog"/>
           <button className="header-button" onClick={(()=> this.setState({shouldRender:true}))}>
             Создать задачу
           </button>

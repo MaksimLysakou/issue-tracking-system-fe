@@ -21,7 +21,7 @@ class IssueViewCreateContainer extends PureComponent{
 
   makeBoardsRequest(){
     return axios.get(`http://localhost:3000/boards/`,
-      { headers: localStorage.getItem('token') })
+      { headers: {token: localStorage.getItem('token')} })
       .then((response) => {
         this.setState( {
           board_array: response.data
@@ -35,7 +35,7 @@ class IssueViewCreateContainer extends PureComponent{
 
   makeAssigneeRequest(){
     return axios.get(`http://localhost:3000/users/`,
-      {headers: localStorage.getItem('token')})
+      {headers: {token: localStorage.getItem('token')}})
       .then((response)=>{
         this.setState( {
           assignee_array: response.data.result

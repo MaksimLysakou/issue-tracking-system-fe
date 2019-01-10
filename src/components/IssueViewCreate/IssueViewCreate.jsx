@@ -170,10 +170,8 @@ IssueViewCreate.defaultProps = {
   assignees: [],
   column_names: [],
   assignee_emails: [],
-  reporter_email: '',
-  current_assignee_id: '',
-  current_column_id: '',
-  current_priority_id: '',
+  board_array: [],
+
 };
 
 IssueViewCreate.propTypes = {

@@ -24,7 +24,6 @@ class IssueViewCreate extends PureComponent {
 
   renderAssigneeList() {
     const assigneeList = this.props.assignee_array;
-    const current_assignee_id = this.props.current_assignee_id;
 
     return (
       <select
@@ -38,7 +37,6 @@ class IssueViewCreate extends PureComponent {
           assigneeList.map(assignee => (
             <option key = { assignee._id }
                     asignee_id = { assignee._id }
-                    selected = { assignee.user_id === current_assignee_id }
             >
               { assignee.email }
             </option>

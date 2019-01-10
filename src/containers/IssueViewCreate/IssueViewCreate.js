@@ -37,6 +37,7 @@ class IssueViewCreateContainer extends PureComponent{
     return axios.get(`http://localhost:3000/users/`,
       {headers: {token: localStorage.getItem('token')}})
       .then((response)=>{
+        console.log(response.data.result);
         this.setState( {
           assignee_array: response.data.result
         })

@@ -4,7 +4,7 @@ import Routes from './routes';
 import './App.css';
 import {Link} from 'react-router-dom';
 import IssueViewWrapper from "./components/IssueViewWrapper";
-import IssueViewContainer from "./containers/IssueView/IssueView";
+import IssueViewCreateContainer from "./containers/IssueViewCreate/IssueViewCreate";
 
 class App extends Component {
     constructor(props){
@@ -33,16 +33,7 @@ class App extends Component {
                   this.setState({shouldRender: false});
               }}
           >
-            <IssueViewContainer
-                  reporter_id={this.props.reporter_id}
-                  issue_id={this.props.issue_id}
-                  current_assignee_id={this.props.current_assignee_id}
-                  current_column_id={this.props.current_column_id}
-                  current_priority_id={this.props.current_priority_id}
-                  description={this.props.description}
-                  issue_name={this.props.issue_name}
-                  estimation={this.props.estimation}
-              />
+            <IssueViewCreateContainer/>
           </IssueViewWrapper>
         </div>
         <Routes/>

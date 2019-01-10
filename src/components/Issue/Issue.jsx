@@ -41,7 +41,7 @@ class Issue extends PureComponent{
 
 Issue.defaultProps = {
     shouldRender:false,
-}
+};
 
 Issue.propTypes ={
     assignee_email: propTypes.string,

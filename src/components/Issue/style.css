@@ -1,7 +1,8 @@
 .issue{
     display: flex;
     flex-direction: row;
-    width: 100%;
+    min-width: 1000px;
+    min-height: 40px;
     margin-bottom: 5px;
     margin-top: 5px;
     background: #4bbf6b;
@@ -13,4 +14,9 @@
 .issue__content{
     margin-left: 10px;
     margin-right: 10px;
+    min-width: 200px;
+}
+
+.issue_wrapper{
+    width:80%;
 }

@@ -11,7 +11,7 @@ class Issue extends PureComponent{
     }
     render(){
         return(
-            <div>
+            <div className="issue_wrapper">
                 <button className = "issue" onClick={()=> this.setState({shouldRender:true})}>
                     <span className="issue__content">{this.props.issue_name}</span>
                     <span className="issue__content">{this.props.priority_name}</span>

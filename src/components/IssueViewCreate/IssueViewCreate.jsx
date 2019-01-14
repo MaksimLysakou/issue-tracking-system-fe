@@ -170,7 +170,7 @@ IssueViewCreate.defaultProps = {
   assignee_array: [],
   column_array: [],
   board_array: [],
-
+  priority_array: [],
 };
 
 IssueViewCreate.propTypes = {

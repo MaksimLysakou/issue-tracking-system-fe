@@ -53,6 +53,8 @@ class IssueViewCreate extends PureComponent {
 
   renderBoardList() {
     const board_array = this.props.board_array;
+    console.log('component', this.props.board_array)
+    console.log('------------------------', board_array)
     return (
       <select
         ref={(ref) => {this.board_id = ref;}}

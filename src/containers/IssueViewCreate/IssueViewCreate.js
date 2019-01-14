@@ -24,6 +24,7 @@ class IssueViewCreateContainer extends PureComponent{
     return axios.get(`http://localhost:3000/boards/`,
       { headers: {token: localStorage.getItem('token')} })
       .then((response) => {
+        console.log(response.data)
         this.setState( {
           board_array: response.data.board_array
         })

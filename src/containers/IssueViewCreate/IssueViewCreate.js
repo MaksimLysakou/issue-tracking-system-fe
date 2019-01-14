@@ -91,9 +91,7 @@ class IssueViewCreateContainer extends PureComponent{
 }
 
 IssueViewCreate.defaultProps ={
-  board_array: [],
-  assignee_array: [],
-  column_array: [],
+
 };
 
 IssueViewCreate.propTypes ={

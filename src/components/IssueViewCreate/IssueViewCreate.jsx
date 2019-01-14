@@ -3,6 +3,11 @@ import propTypes from 'prop-types';
 import './style.css';
 
 class IssueViewCreate extends PureComponent {
+  constructor(props){
+    super(props);
+    this.state = {
+    }
+  };
   onCreate() {
     const formData = {
       issue_name: this.issue_name.value,
@@ -73,13 +78,13 @@ class IssueViewCreate extends PureComponent {
   }
 
   renderColumnList() {
-    const columnList = this.props.columns;
+    const columnList = this.props.column_array;
     return (
       <select
         ref={(ref) => {this.column_id = ref;}}
         onChange={(event) => {
           const selectedIndex = event.target.options.selectedIndex;
-          this.setState({ board_id:event.target.options[selectedIndex].getAttribute('column_id') }
+          this.setState({ column_id :event.target.options[selectedIndex].getAttribute('column_id') }
           )
         }}
       >
@@ -130,12 +135,14 @@ class IssueViewCreate extends PureComponent {
           </div>
           <div className="issue-view-create__body-issue">
             <span> Описание: </span>
-            <textarea />
+            <textarea ref={(ref)=> {this.description=ref;}}/>
           </div>
           <div className="issue-view-create__body-issue">
+            <span> Доска: </span>
             {this.renderBoardList()}
           </div>
           <div className="issue-view-create__body-issue">
+            <span> Колонка: </span>
             {this.renderColumnList}
           </div>
           <div className="issue-view-create__body-issue">
@@ -148,7 +155,7 @@ class IssueViewCreate extends PureComponent {
           </div>
           <div className="issue-view-create__body-issue">
             <span> Estimation: </span>
-            <input defaultValue={this.props.estimation} ref={(ref) => {this.estimation = ref;}}/>
+            <input ref={(ref) => {this.estimation = ref;}}/>
           </div>
           <div className="issue-view-create__buttons">
             <button className="issue-view-create__buttons-create" onClick={()=> this.onCreate()}> Создать задачу </button>
@@ -160,14 +167,8 @@ class IssueViewCreate extends PureComponent {
 }
 
 IssueViewCreate.defaultProps = {
-  description: '',
-  assignee_email: '',
-  priority_name: 'None',
-  estimation: '',
-  column_name:'',
-  assignees: [],
-  column_names: [],
-  assignee_emails: [],
+  assignee_array: [],
+  column_array: [],
   board_array: [],
 
 };

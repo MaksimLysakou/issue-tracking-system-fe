@@ -25,7 +25,7 @@ class IssueViewCreateContainer extends PureComponent{
       { headers: {token: localStorage.getItem('token')} })
       .then((response) => {
         this.setState( {
-          board_array: response.data
+          board_array: response.data.board_array
         })
 
       })

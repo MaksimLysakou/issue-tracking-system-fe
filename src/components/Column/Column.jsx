@@ -5,6 +5,7 @@ import IssueContainer from '../../containers/Issue/Issue'
 
 class Column extends PureComponent{
     renderIssueArray(){
+      console.log('component', this.props.data);
         return this.props.data.map(data => (
             <IssueContainer
                 key = { data.issue_id }

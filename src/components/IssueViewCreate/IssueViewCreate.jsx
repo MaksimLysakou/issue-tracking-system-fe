@@ -32,7 +32,6 @@ class IssueViewCreate extends PureComponent {
 
     return (
       <select
-        ref={(ref) => {this.assignee_id = ref;}}
         onChange={(event) => {
           const selectedIndex = event.target.options.selectedIndex;
           this.setState({ assignee_id:event.target.options[selectedIndex].getAttribute('_id') })
@@ -53,11 +52,8 @@ class IssueViewCreate extends PureComponent {
 
   renderBoardList() {
     const board_array = this.props.board_array;
-    console.log('component', this.props.board_array)
-    console.log('------------------------', board_array)
     return (
       <select
-        ref={(ref) => {this.board_id = ref;}}
         onChange={(event) => {
           const selectedIndex = event.target.options.selectedIndex;
           this.setState({ board_id:event.target.options[selectedIndex].getAttribute('board_id') },
@@ -106,10 +102,8 @@ class IssueViewCreate extends PureComponent {
 
   renderPriorityList() {
     const priority_array = this.props.priority_array ;
-
     return (
       <select
-        ref = {(ref)=>{this.priority_id = ref;}}
         onChange={(event) => {
           const selectedIndex = event.target.options.selectedIndex;
           this.setState(event.target.options[selectedIndex].getAttribute('priority_id'));

@@ -147,7 +147,7 @@ class IssueViewCreate extends PureComponent {
           </div>
           <div className="issue-view-create__body-issue">
             <span> Колонка: </span>
-            {this.renderColumnList}
+            {this.renderColumnList()}
           </div>
           <div className="issue-view-create__body-issue">
             <span> Исполнитель:</span>

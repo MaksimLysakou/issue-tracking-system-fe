@@ -6,6 +6,10 @@ class IssueViewCreate extends PureComponent {
   constructor(props){
     super(props);
     this.state = {
+      issue_name:'',
+      description:'',
+      assignee_id:'',
+      priority_id:'',
     }
   };
   onCreate() {
@@ -35,7 +39,9 @@ class IssueViewCreate extends PureComponent {
     return (
       <select
         onChange={(event) => {
+          console.log('onChange')
           const selectedIndex = event.target.options.selectedIndex;
+          console.log(selectedIndex);
           this.setState({ assignee_id:event.target.options[selectedIndex].getAttribute('_id') })
         }}
       >

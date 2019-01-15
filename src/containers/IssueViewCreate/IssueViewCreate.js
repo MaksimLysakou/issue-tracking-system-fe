@@ -15,7 +15,7 @@ class IssueViewCreateContainer extends PureComponent{
 
 
   makeCreateIssueRequest(formData){
-      return axios.post(`http://localhost:3000/issues/`, formData,
+      return axios.post(`http://localhost:3000/api/issues/`, formData,
         { headers: { token: localStorage.getItem('token') } })
         .then()
         .catch((error) =>{
@@ -24,7 +24,7 @@ class IssueViewCreateContainer extends PureComponent{
   }
 
   makeBoardsRequest(){
-    return axios.get(`http://localhost:3000/boards/`,
+    return axios.get(`http://localhost:3000/api/boards/`,
       { headers: {token: localStorage.getItem('token')} })
       .then((response) => {
         console.log(response.data)
@@ -39,7 +39,7 @@ class IssueViewCreateContainer extends PureComponent{
   }
 
   makeAssigneeRequest(){
-    return axios.get(`http://localhost:3000/users/`,
+    return axios.get(`http://localhost:3000/api/users/`,
       {headers: {token: localStorage.getItem('token')}})
       .then((response)=>{
         console.log(response.data.result);

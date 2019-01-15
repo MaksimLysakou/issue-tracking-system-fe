@@ -15,8 +15,9 @@ class IssueViewCreate extends PureComponent {
       assignee_id: this.state.assignee_id,
       priority_id: this.state.priority_id,
       estimation: this.estimation.value,
-      board_id: this.state.board_id,
+      column_id: this.state.column_id,
     };
+    console.log("state: ", this.state)
     console.log('formData в onCreate', formData);
     this.props.makeCreateIssueRequest(formData);
   }

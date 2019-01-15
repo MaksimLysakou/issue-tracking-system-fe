@@ -1,12 +1,15 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
-import propTypes from 'prop-types';
 import IssueViewCreate from "../../components/IssueViewCreate";
 
 class IssueViewCreateContainer extends PureComponent{
   constructor(props){
     super(props);
     this.state = {
+      priority_array:[],
+      column_array:[],
+      board_array:[],
+      assignee_array:[],
     }
   };
 
@@ -90,15 +93,5 @@ class IssueViewCreateContainer extends PureComponent{
     )
   }
 }
-
-IssueViewCreate.defaultProps ={
-
-};
-
-IssueViewCreate.propTypes ={
-  board_array: propTypes.array,
-  assignee_array: propTypes.array,
-  column_array: propTypes.array,
-};
 
 export default IssueViewCreateContainer;

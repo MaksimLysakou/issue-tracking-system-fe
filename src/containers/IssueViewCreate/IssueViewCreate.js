@@ -17,7 +17,9 @@ class IssueViewCreateContainer extends PureComponent{
   makeCreateIssueRequest(formData){
       return axios.post(`http://localhost:3000/api/issues/`, formData,
         { headers: { token: localStorage.getItem('token') } })
-        .then()
+        .then((response) =>{
+          console.log(response);
+        })
         .catch((error) =>{
           console.error(error);
         })
@@ -27,7 +29,6 @@ class IssueViewCreateContainer extends PureComponent{
     return axios.get(`http://localhost:3000/api/boards/`,
       { headers: {token: localStorage.getItem('token')} })
       .then((response) => {
-        console.log(response.data)
         this.setState( {
           board_array: response.data.board_array
         })
@@ -44,7 +45,7 @@ class IssueViewCreateContainer extends PureComponent{
       .then((response)=>{
         console.log(response.data.result);
         this.setState( {
-          assignee_array: response.data.result
+          assignee_array: response.data.users
         })
       })
       .catch((error)=>{
@@ -52,9 +53,9 @@ class IssueViewCreateContainer extends PureComponent{
       })
   }
 
-  makeBoardColumnsRequest(){
+  makeBoardColumnsRequest(formData){
     /*const boardId = window.location.href.slice(window.location.href.lastIndexOf('/') + 1);*/
-    return axios.get(`http://localhost:3000/api/columns/${this.props.board_id}`,
+    return axios.get(`http://localhost:3000/api/columns/${formData}`,
       { headers: { token: localStorage.getItem('token') } })
       .then((response)=>{
         this.setState({ column_array: response.data.gotColumns })
@@ -68,7 +69,7 @@ class IssueViewCreateContainer extends PureComponent{
     return axios.get(`http://localhost:3000/api/priorities/`,
       { headers: { token: localStorage.getItem('token') } })
       .then((response)=>{
-        this.setState({ priority_array: response.data.gotPriorities })
+        this.setState({ priority_array: response.data.priority_array })
       })
       .catch((error)=>{
         console.error(error);

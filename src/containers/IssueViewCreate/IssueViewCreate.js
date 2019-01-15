@@ -15,6 +15,7 @@ class IssueViewCreateContainer extends PureComponent{
 
 
   makeCreateIssueRequest(formData){
+    console.log("formData в запросе",formData);
       return axios.post(`http://localhost:3000/api/issues/`, formData,
         { headers: { token: localStorage.getItem('token') } })
         .then((response) =>{
@@ -43,7 +44,6 @@ class IssueViewCreateContainer extends PureComponent{
     return axios.get(`http://localhost:3000/api/users/`,
       {headers: {token: localStorage.getItem('token')}})
       .then((response)=>{
-        console.log(response.data.result);
         this.setState({ assignee_array: response.data.users_array })
       })
       .catch((error)=>{

@@ -44,9 +44,7 @@ class IssueViewCreateContainer extends PureComponent{
       {headers: {token: localStorage.getItem('token')}})
       .then((response)=>{
         console.log(response.data.result);
-        this.setState( {
-          assignee_array: response.data.users
-        })
+        this.setState({ assignee_array: response.data.users_array })
       })
       .catch((error)=>{
         console.error(error);

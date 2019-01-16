@@ -87,6 +87,7 @@ class IssueViewCreateContainer extends PureComponent{
         assignee_array = {this.state.assignee_array}
         column_array = {this.state.column_array}
         priority_array = {this.state.priority_array}
+        makeBoardColumnsRequest = { (formData) => {this.makeBoardColumnsRequest(formData)}}
         makeCreateIssueRequest = { ( formData ) => {this.makeCreateIssueRequest(formData) } }
       />
     )

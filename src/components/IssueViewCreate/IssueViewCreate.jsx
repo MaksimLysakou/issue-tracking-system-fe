@@ -43,6 +43,7 @@ class IssueViewCreate extends PureComponent {
           const selectedIndex = event.target.options.selectedIndex;
           console.log(selectedIndex);
           this.setState({ assignee_id:event.target.options[selectedIndex].getAttribute('_id') })
+          console.log("state", this.state)
         }}
       >
         {
@@ -64,9 +65,9 @@ class IssueViewCreate extends PureComponent {
       <select
         onChange={(event) => {
           const selectedIndex = event.target.options.selectedIndex;
-          this.setState({ board_id:event.target.options[selectedIndex].getAttribute('board_id') },
-            this.onColumnsListUpdate()
-          )
+          this.setState({ board_id:event.target.options[selectedIndex].getAttribute('board_id') })
+          this.onColumnsListUpdate();
+          console.log("state", this.state)
         }}
       >
         {
@@ -90,8 +91,8 @@ class IssueViewCreate extends PureComponent {
         ref={(ref) => {this.column_id = ref;}}
         onChange={(event) => {
           const selectedIndex = event.target.options.selectedIndex;
-          this.setState({ column_id :event.target.options[selectedIndex].getAttribute('column_id') }
-          )
+          this.setState({ column_id :event.target.options[selectedIndex].getAttribute('column_id') })
+          console.log('state', this.state);
         }}
       >
         {

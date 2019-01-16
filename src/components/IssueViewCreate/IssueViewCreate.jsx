@@ -66,6 +66,7 @@ class IssueViewCreate extends PureComponent {
         onChange={(event) => {
           const selectedIndex = event.target.options.selectedIndex;
           this.setState({ board_id:event.target.options[selectedIndex].getAttribute('board_id') })
+          console.log(event.target.options[selectedIndex]);
           this.onColumnsListUpdate();
           console.log("state", this.state)
         }}

@@ -7,45 +7,16 @@ class IssueViewContainer extends PureComponent{
     constructor(props){
         super(props);
         this.state = {
-            reporter_email: "reporter@gmail.com",
-            assignee_emails: ["assignee1@gmail.com", "assignee2@gmail.com"],
-            name: "testIssue",
-            assignee_array:[
-                {
-                    _id:"asdasdadasdsfsdgsd", email:"assignee1@gmail.com"
-                },
-                {
-                    _id:"asdasfsdgsdgdfgdffd", email:"assignee2@gmail.com"
-                },
-                {
-                    _id:"asdslkfjesijvmdkjng", email:"assignee3@gmail.com"
-                }
-            ],
-            priority_array:[
-                {_id:"131221adwsfweqewq1", priority_name:"None"},
-                {_id:"131221adwsfweqewq2", priority_name:"Lowest"},
-                {_id:"131221adwsfweqewq3", priority_name:"Low"},
-                {_id:"131221adwsfweqewq4", priority_name:"Normal"},
-                {_id:"131221adwsfweqewq5", priority_name:"Medium"},
-                {_id:"131221adwsfweqewq6", priority_name:"High"},
-                {_id:"131221adwsfweqewq7", priority_name:"Highest"},
-                {_id:"131221adwsfweqewq8", priority_name:"Blocker"}
-                ],
-            column_array:[
-                {_id: "5c2e30e4fe742a43f0e08eb8",column_name: "TODO", board_id: "5c2e30e4fe742a43f0e08eb6"},
-                {_id: "5c2e30e4fe742a43f0e08eb9",column_name: "In progress",board_id:"5c2e30e4fe742a43f0e08eb6"},
-                {_id: "5c2e30e4fe742a43f0e08eba",column_name: "Code review",board_id:"5c2e30e4fe742a43f0e08eb6"},
-                {_id: "5c2e30e4fe742a43f0e08ebb",column_name: "Done",board_id:"5c2e30e4fe742a43f0e08eb6"}
-                ],
-            board_array:[
-                {_id: "5c2e30e4fe742a43f0e08eb8",board_name: "testBoard1"},
-                {_id: "5c2e30e4fe742a43f0e08eb6",board_name: "testBoard2"},
-                {_id: "5c2e30e4fe742a43f0e08eb7",board_name: "testBoard3"}
-            ]
+            reporter_email: '',
+            issue_name: "No name",
+            assignee_array:[],
+            column_id: '',
+            description: 'No description',
+            estimation: 'No estimation',
         };
     }
 
-    /*makeUpdateRequest(formData){
+    makeUpdateRequest(formData){
         return axios.put(`http://localhost:3000/issues/${this.props._id}`, formData,
             {headers: localStorage.getItem('token')})
             .then((response)=>{
@@ -61,7 +32,7 @@ class IssueViewContainer extends PureComponent{
                 this.makeAssigneeRequest();
                 this.makePriorityRequest();
             })
-    }*/
+    }
     makeReporterRequest(){
         return axios.get(`http://localhost:3000/users/${this.props.reporter_id}`,
             {headers: localStorage.getItem('token')})
@@ -119,7 +90,7 @@ class IssueViewContainer extends PureComponent{
         return axios.get(`http://localhost:3000/api/priorities/`,
             { headers: { token: localStorage.getItem('token') } })
             .then((response)=>{
-                this.setState({ priority_array: response.data.gotPriorities })
+                this.setState({ priority_array: response.data.priority_array })
             })
             .catch((error)=>{
                 console.error(error);
@@ -127,10 +98,10 @@ class IssueViewContainer extends PureComponent{
     }
 
     componentDidMount(){
-        /*this.makeReporterRequest();
+        this.makeReporterRequest();
         this.makeAssigneeRequest();
         this.makePriorityRequest();
-        this.makeBoardsRequest();*/
+        this.makeBoardsRequest();
     }
 
     render(){
@@ -147,6 +118,7 @@ class IssueViewContainer extends PureComponent{
                 priority_array = {this.state.priority_array}
                 estimation = {this.props.estimation}
                 current_priority_id = {this.props.current_priority_id}
+                makeBoardColumnsRequest = { (formData) => {this.makeBoardColumnsRequest(formData)}}
                 makeUpdateRequest = { ( formData ) => {this.makeUpdateRequest(formData) } }
             />
         )

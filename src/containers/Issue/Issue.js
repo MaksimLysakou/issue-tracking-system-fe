@@ -7,14 +7,20 @@ class IssueContainer extends PureComponent{
     constructor(props){
         super(props);
         this.state = {
-            assignee_email: "1@gmail.com",
-            priority_name: "None",
+          issue_name :'',
+          reporter_id :'',
+          assignee_id :'',
+          priority_id :'',
+          column_id :'',
+          description :'',
+          estimation :'',
+          issue_id :'',
         };
     }
 
     componentDidMount(){
-        /*this.makeAssigneeRequest();*/
-        /*this.makePriorityRequest();*/
+        this.makeAssigneeRequest();
+        this.makePriorityRequest();
     }
 
     makeAssigneeRequest(){
@@ -62,9 +68,15 @@ class IssueContainer extends PureComponent{
     }
 }
 IssueContainer.defaultProps ={
-    reporter_id: "31eqweqwwewew23423sfs",
-    priority_id: "131221adwsfweqewq1"
-}
+  issue_name: '',
+  reporter_id: '',
+  assignee_id: '',
+  priority_id: '',
+  column_id: '',
+  description: '',
+  estimation: '',
+  issue_id: '',
+};
 
 IssueContainer.propTypes={
     issue_name: propTypes.string.isRequired,

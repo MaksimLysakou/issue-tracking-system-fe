@@ -41,6 +41,16 @@ class Issue extends PureComponent{
 
 Issue.defaultProps = {
     shouldRender:false,
+    assignee_email: '',
+    issue_name: 'No name',
+    priority_name: 'None',
+    reporter_id: '',
+    issue_id: '',
+    current_assignee_id: '',
+    current_column_id: '',
+    current_priority_id: '',
+    description: 'No description',
+    estimation: '1 m/d',
 };
 
 Issue.propTypes ={

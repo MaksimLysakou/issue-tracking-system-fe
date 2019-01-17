@@ -10,7 +10,7 @@ class IssueView extends PureComponent {
             issue_name: this.issue_name.value,
             description: this.description.value,
             estimation: this.estimation.value,
-            board_id: this.state.board_id,
+            column_id: this.state.column_id,
         };
         this.props.makeUpdateRequest(formData);
     }
@@ -50,7 +50,6 @@ class IssueView extends PureComponent {
 
     renderBoardList() {
         const board_array = this.props.board_array;
-        const board_name = this.props.board_name;
         return (
             <select
                 ref={(ref) => {this.board_id = ref;}}
@@ -65,8 +64,7 @@ class IssueView extends PureComponent {
                     board_array.map(board => (
                         <option
                             key={board.board_id}
-                            board_id = { board.board_id }
-                            selected = { board.board_id === board_name }
+                            board_id = { board._id }
                         >
                             { board.board_name }
                             </option>
@@ -200,6 +198,7 @@ IssueView.propTypes = {
     column_array: propTypes.array.isRequired,
     board_array: propTypes.array.isRequired,
     makeUpdateRequest: propTypes.func,
+    makeBoardColumnsRequest: propTypes.func,
 };
 
 export default IssueView;

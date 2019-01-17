@@ -53,7 +53,7 @@ class IssueViewCreateContainer extends PureComponent{
 
   makeBoardColumnsRequest(formData){
     /*const boardId = window.location.href.slice(window.location.href.lastIndexOf('/') + 1);*/
-    return axios.get(`http://localhost:3000/api/columns/${formData}`,
+    return axios.get(`http://localhost:3000/api/columns/${formData.board_id}`,
       { headers: { token: localStorage.getItem('token') } })
       .then((response)=>{
         this.setState({ column_array: response.data.gotColumns })

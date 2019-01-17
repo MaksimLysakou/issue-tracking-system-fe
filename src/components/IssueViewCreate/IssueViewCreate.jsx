@@ -121,8 +121,8 @@ class IssueViewCreate extends PureComponent {
         }}>
         {
           priority_array.map(priority => (
-            <option key={priority.priority_id}
-                    priority_id={priority.priority_id}
+            <option key={priority._id}
+                    priority_id={priority._id}
             >
               {priority.priority_name}
             </option>

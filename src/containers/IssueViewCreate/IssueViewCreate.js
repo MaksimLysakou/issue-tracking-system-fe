@@ -78,6 +78,7 @@ class IssueViewCreateContainer extends PureComponent{
     this.makeAssigneeRequest();
     this.makePriorityRequest();
     this.makeBoardsRequest();
+    this.makeBoardColumnsRequest();
   }
 
   render(){

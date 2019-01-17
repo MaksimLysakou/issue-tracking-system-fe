@@ -10,6 +10,7 @@ class IssueViewCreate extends PureComponent {
       description:'',
       assignee_id:'',
       priority_id:'',
+      board_id:'',
     }
   };
   onCreate() {
@@ -75,7 +76,7 @@ class IssueViewCreate extends PureComponent {
           board_array.map(board => (
             <option
               key={board.board_id}
-              board_id = { board.board_id }
+              board_id = { board._id }
             >
               { board.board_name }
             </option>
@@ -185,6 +186,7 @@ IssueViewCreate.propTypes = {
   column_array: propTypes.array.isRequired,
   board_array: propTypes.array.isRequired,
   makeCreateIssueRequest: propTypes.func,
+  makeBoardColumnsRequest: propTypes.func,
 };
 
 export default IssueViewCreate;

@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import propTypes from 'prop-types';
 import './style.css';
+const jwtDecode = require('jwt-decode');
 
 class IssueViewCreate extends PureComponent {
   constructor(props){
@@ -11,6 +12,7 @@ class IssueViewCreate extends PureComponent {
       assignee_id:'',
       priority_id:'',
       board_id:'',
+      reporter_id: jwtDecode(localStorage.getItem('token'))
     }
   };
   onCreate() {
@@ -35,12 +37,12 @@ class IssueViewCreate extends PureComponent {
   }
 
   renderAssigneeList() {
-    const assigneeList = this.props.assignee_array;
+    const assignee_array = this.props.assignee_array;
 
     return (
       <select
         onChange={(event) => {
-          console.log('onChange')
+          console.log('onChange');
           const selectedIndex = event.target.options.selectedIndex;
           console.log(selectedIndex);
           this.setState({ assignee_id: event.target.options[selectedIndex].getAttribute('assignee_id') })
@@ -48,9 +50,9 @@ class IssueViewCreate extends PureComponent {
         }}
       >
         {
-          assigneeList.map(assignee => (
+          assignee_array.map(assignee => (
             <option key = { assignee._id }
-                    asignee_id = { assignee._id }
+                    assignee_id = { assignee._id }
             >
               { assignee.email }
             </option>
@@ -113,7 +115,6 @@ class IssueViewCreate extends PureComponent {
 
   renderPriorityList() {
     const priority_array = this.props.priority_array ;
-    console.log(priority_array);
     return (
       <select
         onChange={(event) => {

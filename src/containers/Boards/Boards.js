@@ -6,16 +6,10 @@ const jwtDecode = require('jwt-decode');
 class Boards extends PureComponent{
     constructor(props){
         super(props);
-        this.state = { data: [
-                {
-                    _id : "5c2e30e4fe742a43f0e08eb6",
-                    board_name : "testBoard",
-                    __v : 0
-                }
-            ] };
+        this.state = { data: [] };
     }
     componentDidMount(){
-        /*this.makeBoardsRequest()*/
+        this.makeBoardsRequest()
     }
 
     makeBoardsRequest() {

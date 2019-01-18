@@ -33,6 +33,10 @@ class BoardsPage extends PureComponent{
     }
 }
 
+BoardsPage.defaultProps ={
+    data:[],
+};
+
 BoardsPage.propTypes = {
     data: propTypes.array.isRequired,
     createBoardsRequest: propTypes.func.isRequired,

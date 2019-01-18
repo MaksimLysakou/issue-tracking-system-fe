@@ -43,7 +43,7 @@ class IssueViewCreate extends PureComponent {
           console.log('onChange')
           const selectedIndex = event.target.options.selectedIndex;
           console.log(selectedIndex);
-          this.setState({ assignee_id:event.target.options[selectedIndex].getAttribute('_id') })
+          this.setState({ assignee_id: event.target.options[selectedIndex].getAttribute('assignee_id') })
           console.log("state", this.state)
         }}
       >
@@ -100,8 +100,8 @@ class IssueViewCreate extends PureComponent {
         {
           columnList.map(column => (
             <option
-              key={column.column_id}
-              column_id={column.column_id}
+              key={column._id}
+              column_id={column._id}
             >
               {column.column_name}
             </option>
@@ -113,6 +113,7 @@ class IssueViewCreate extends PureComponent {
 
   renderPriorityList() {
     const priority_array = this.props.priority_array ;
+    console.log(priority_array);
     return (
       <select
         onChange={(event) => {

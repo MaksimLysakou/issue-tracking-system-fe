@@ -23,6 +23,7 @@ class IssueViewCreate extends PureComponent {
       priority_id: this.state.priority_id,
       estimation: this.estimation.value,
       column_id: this.state.column_id,
+      reporter_id: this.state.reporter_id,
     };
     console.log("state: ", this.state)
     console.log('formData в onCreate', formData);
@@ -38,7 +39,7 @@ class IssueViewCreate extends PureComponent {
 
   renderAssigneeList() {
     const assignee_array = this.props.assignee_array;
-
+    console.log('assignee_array', assignee_array);
     return (
       <select
         onChange={(event) => {

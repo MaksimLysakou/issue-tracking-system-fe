@@ -118,6 +118,7 @@ class IssueViewCreate extends PureComponent {
         onChange={(event) => {
           const selectedIndex = event.target.options.selectedIndex;
           this.setState(event.target.options[selectedIndex].getAttribute('priority_id'));
+          console.log("state", this.state)
         }}>
         {
           priority_array.map(priority => (

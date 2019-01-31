@@ -7,8 +7,14 @@ class IssueContainer extends PureComponent{
     constructor(props){
         super(props);
         this.state = {
-            firstName:'',
-            lastName:''
+          issue_name :'',
+          reporter_id :'',
+          assignee_id :'',
+          priority_id :'',
+          column_id :'',
+          description :'',
+          estimation :'',
+          issue_id :'',
         };
     }
 
@@ -18,12 +24,11 @@ class IssueContainer extends PureComponent{
     }
 
     makeAssigneeRequest(){
-        return axios.get(`http://localhost:3000/users/${this.props.assigneeId}`,
+        return axios.get(`http://localhost:3000/users/${this.props.assignee_id}`,
             {headers: localStorage.getItem('token')})
             .then((response)=>{
                 this.setState( {
-                    firstName: response.data.first_name,
-                    lastName: response.data.last_name
+                    assignee_email: response.data.email,
                 })
 
             })
@@ -33,11 +38,11 @@ class IssueContainer extends PureComponent{
     }
 
     makePriorityRequest(){
-        return axios.get(`http://localhost:3000/priorities/${this.props.priorityId}`,
+        return axios.get(`http://localhost:3000/priorities/${this.props.priority_id}`,
             {headers: localStorage.getItem('token')})
             .then((response)=>{
                 this.setState({
-                    priorityName: response.data.priority_name
+                    priority_name: response.data.priority_name
                 })
 
             })
@@ -48,20 +53,40 @@ class IssueContainer extends PureComponent{
     render(){
         return(
             <Issue
-                firstName={ this.state.firstName }
-                lastName={ this.state.lastName }
-                name={ this.props.name }
-                priorityName={ this.state.priorityName}
+                assignee_email = { this.state.assignee_email }
+                issue_name = { this.props.issue_name }
+                priority_name = { this.state.priority_name }
+                reporter_id = { this.props.reporter_id }
+                issue_id = { this.props.issue_id }
+                current_assignee_id = { this.props.assignee_id }
+                current_column_id = { this.props.column_id }
+                current_priority_id = { this.props.priority_id }
+                description = { this.props.description }
+                estimation = { this.props.estimation }
             />
         )
     }
 }
+IssueContainer.defaultProps ={
+  issue_name: '',
+  reporter_id: '',
+  assignee_id: '',
+  priority_id: '',
+  column_id: '',
+  description: '',
+  estimation: '',
+  issue_id: '',
+};
 
 IssueContainer.propTypes={
-    assigneeId: propTypes.string,
-    name: propTypes.string.isRequired,
-    priorityId: propTypes.string
-
+    issue_name: propTypes.string.isRequired,
+    reporter_id: propTypes.string,
+    assignee_id: propTypes.string,
+    priority_id: propTypes.string,
+    column_id: propTypes.string,
+    description: propTypes.string,
+    estimation: propTypes.string,
+    issue_id: propTypes.string.isRequired,
 };
 
 export default IssueContainer

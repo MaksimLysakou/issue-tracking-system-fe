@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import LoginPage from '../../components/LoginPage/index';
+import LoginPage from '../../components/LoginPage';
 
 class LogIn extends Component{
     constructor(props){

@@ -1,16 +1,22 @@
 import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
 import "./style.css";
-import Issue from '../../containers/Issue/Issue'
+import IssueContainer from '../../containers/Issue/Issue'
 
 class Column extends PureComponent{
     renderIssueArray(){
+      console.log('component', this.props.data);
         return this.props.data.map(data => (
-            <Issue
-                key={data._id}
-                name={data.name}
-                assigneeId={data.assignee_id}
-                priorityId={data.priority_id}
+            <IssueContainer
+                key = { data.issue_id }
+                issue_name = { data.name }
+                reporter_id = { data.reporter_id }
+                assignee_id = { data.assignee_id }
+                priority_id = { data.priority_id }
+                column_id = { data.column_id }
+                description = { data.description }
+                estimation = { data.estimation }
+                issue_id = { data.issue_id }
             />
         ))
     }

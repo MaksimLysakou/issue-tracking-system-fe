@@ -13,10 +13,10 @@ class Backlog extends PureComponent{
     }
 
     makeIssuesRequest(){
-        return axios.get(`http://localhost:3000/api/issues/`,
+        return axios.get(`http://localhost:3000/api/issues`,
             { headers: { token: localStorage.getItem('token') } })
             .then((response)=>{
-                this.setState({ data: response.data.foundIssues })
+                this.setState({ data: response.data.result })
             })
             .catch((error)=>{
                 console.error(error);

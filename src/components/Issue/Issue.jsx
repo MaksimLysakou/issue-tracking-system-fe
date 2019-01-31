@@ -1,24 +1,70 @@
 import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
 import './style.css';
+import IssueViewWrapper from "../IssueViewWrapper";
+import IssueViewContainer from "../../containers/IssueView/IssueView";
 
 class Issue extends PureComponent{
+    constructor(props){
+        super(props);
+        this.state = { shouldRender: this.props.shouldRender };
+    }
     render(){
         return(
-            <button className = "issue">
-                <span className="issue__content">{this.props.name}</span>
-                <span className="issue__content">{this.props.priorityName}</span>
-                <span className= "issue__content">{this.props.firstName} {this.props.lastName}</span>
-            </button>
+            <div className="issue_wrapper">
+                <button className = "issue" onClick={()=> this.setState({shouldRender:true})}>
+                    <span className="issue__content">{this.props.issue_name}</span>
+                    <span className="issue__content">{this.props.priority_name}</span>
+                    <span className= "issue__content">{this.props.assignee_email}</span>
+                </button>
+                <IssueViewWrapper
+                    shouldRender={this.state.shouldRender}
+                    onClickOutside={() => {
+                        this.setState({shouldRender: false});
+                    }}
+                >
+                    <IssueViewContainer
+                        reporter_id={this.props.reporter_id}
+                        issue_id={this.props.issue_id}
+                        current_assignee_id={this.props.current_assignee_id}
+                        current_column_id={this.props.current_column_id}
+                        current_priority_id={this.props.current_priority_id}
+                        description={this.props.description}
+                        issue_name={this.props.issue_name}
+                        estimation={this.props.estimation}
+                    />
+                </IssueViewWrapper>
+            </div>
         )
     }
 }
 
+Issue.defaultProps = {
+    shouldRender:false,
+    assignee_email: '',
+    issue_name: 'No name',
+    priority_name: 'None',
+    reporter_id: '',
+    issue_id: '',
+    current_assignee_id: '',
+    current_column_id: '',
+    current_priority_id: '',
+    description: 'No description',
+    estimation: '1 m/d',
+};
+
 Issue.propTypes ={
-    firstName: propTypes.string,
-    lastName: propTypes.string,
-    priorityName: propTypes.string,
-    name: propTypes.string.isRequired,
+    assignee_email: propTypes.string,
+    issue_name: propTypes.string.isRequired,
+    priority_name: propTypes.string,
+    reporter_id: propTypes.string.isRequired,
+    issue_id: propTypes.string.isRequired,
+    current_assignee_id: propTypes.string,
+    current_column_id: propTypes.string,
+    current_priority_id: propTypes.string,
+    description: propTypes.string,
+    estimation: propTypes.string,
+    shouldRender: propTypes.boolean,
 };
 
 export default Issue
